@@ -1,22 +1,9 @@
-const path=require('path')
+ const path=require('path')
+ const express=require('express')
+ const app=express()
 
 const publicDirectoryPath=path.join(__dirname,'../public')
-const express=require('express')
-const app=express()
-app.get('',(res,req)=>{
-    res.setEncoding('Hello Express!')
-
-})
-app.get('/help',(req,res)=>{
-    res.send({
-        name:'Sriram',
-        age:18
-    
-    })
-})
-app.get('/about',(req,res)=>{
-    res.send('<h1>html for life</h1>')
-})
+app.use(express.static(publicDirectoryPath))
 app.get('/weather',(req,res)=>{
     res.send({
         Location:'Bangalore',
